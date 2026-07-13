@@ -390,6 +390,121 @@ PC → imem → decoder + regfile + imm_gen → ALU / branch_cmp → dmem → wr
 
 ---
 
+## Current status
+
+All eight functional modules exist and the whole design elaborates under
+`verilator --lint-only -Wall`. Unit TBs were deliberately skipped — the plan
+above calls for them, but the decision was to let the rv32ui suite carry the
+verification load instead and spend the time on the pipeline.
+
+**Done:**
+- `riscv_pkg`, `ctrl_pkg` — encodings and the full `ctrl_t` bundle
+- `alu`, `imm_gen`, `branch_cmp` — combinational, believed correct, unverified
+- `reg_file` — x0 write suppression enforced in the module
+- `decoder` — full RV32I control table
+- `instr_mem` — `$readmemh`-loaded, combinational read
+- `data_mem` — byte-lane write enables, load sign/zero extension, full sub-word set
+- Build flow — `sim/cpu_rtl.f`, `sim/waivers.vlt`, root `Makefile` (`make lint`)
+
+**In progress — the top level (`design/cpu_single_cycle_top.sv`):**
+Every module is instantiated and wired, but three muxes are stubbed to `'0`:
+- operand-A mux (`ctrl.alu_src_a`: rs1 / PC / zero)
+- operand-B mux (`ctrl.alu_src_b`: rs2 / imm)
+- writeback mux (`ctrl.result_sel`: ALU / mem / PC+4)
+
+These are the last three things standing between the core and its first
+executed instruction. Verilator's two remaining `UNUSEDSIGNAL` warnings
+(`mem_rdata`, `ctrl[11:7]`) are precisely the symptom of these stubs, and will
+disappear on their own once the muxes are real. `make lint` is expected to fail
+until then — that failure *is* the TODO list.
+
+**Next after that:** the software side — assemble a smoke program, build the
+Verilator testbench, then bring up rv32ui. See "Running programs on the core".
+
+---
+
+## Running programs on the core
+
+Nothing above executes an instruction until there is a program to run and a
+harness to run it in. Three pieces, in order:
+
+### 1. A program, as a hex image
+
+`instr_mem` loads itself with `$readmemh`, which wants a text file of one
+32-bit word per line in hex. Getting from source to that file:
+
+```
+smoke.S  --as-->  smoke.o  --ld-->  smoke.elf  --objcopy-->  smoke.bin  --hexdump-->  smoke.hex
+```
+
+Concretely, with the toolchain at `/opt/riscv/bin`:
+
+```sh
+riscv32-unknown-elf-gcc -march=rv32i -mabi=ilp32 -nostdlib -Ttext=0 \
+    -o smoke.elf smoke.S
+riscv32-unknown-elf-objcopy -O binary smoke.elf smoke.bin
+od -An -tx4 -v smoke.bin | tr -s ' ' '\n' | grep . > smoke.hex
+```
+
+`-Ttext=0` matters: `RESET_PC` is 0 and `instr_mem` indexes from 0, so the
+program has to be linked to start there. `-nostdlib` keeps out the C runtime,
+which the core cannot run yet. The `od` incantation is just "one little-endian
+word per line" — `objcopy -O verilog` is the other common route, but it emits a
+byte-oriented format that needs a different `$readmemh` array shape.
+
+The first program should be the six-instruction smoke test (`addi lw sw beq jal
+add`), ending in `ECALL`. It proves the datapath is wired correctly, and it is
+small enough to single-step by hand in a waveform when it isn't.
+
+### 2. A Verilator testbench
+
+Verilator is a *compiler*, not an interpreter: it translates the SystemVerilog
+into C++, which is then compiled into a normal executable. That executable is
+the simulation. So a run is two phases — `verilate + g++` (slow, once per RTL
+change), then the actual sim (very fast).
+
+The testbench is C++, and it is short. It instantiates the verilated model,
+toggles `clk`, and watches `halt`:
+
+```cpp
+Vcpu_single_cycle_top* dut = new Vcpu_single_cycle_top;
+dut->rst_n = 0;  tick(dut);  tick(dut);   // a couple of cycles in reset
+dut->rst_n = 1;
+
+while (!dut->halt && cycles < MAX_CYCLES) tick(dut);
+```
+
+where `tick()` sets `clk=0`, `eval()`, `clk=1`, `eval()`, and dumps a VCD line.
+When `halt` goes high the program has hit its `ECALL`; the harness then reaches
+into the model (`dut->rootp->...reg_file_i__DOT__regs[10]`) to read `a0` and
+decide pass or fail. A `MAX_CYCLES` cap is what keeps a runaway branch from
+hanging the run forever.
+
+The alternative is an SV testbench driving the same DUT, with Verilator in
+`--binary` mode. Either works; the C++ harness is the one that scales into Spike
+co-simulation in Phase 2, because Spike is a C library and DPI-C is avoidable
+this way.
+
+### 3. riscv-tests (rv32ui)
+
+The official suite is the real bar. Each test is a hand-written assembly program
+that exercises one instruction against dozens of operand cases, and signals its
+verdict by the convention the ECALL handling was built for: write a result code
+to `gp` (`x3`) — `1` means pass, anything else encodes which sub-test failed —
+then `ECALL`.
+
+So the harness is the same one from step 2, with the register it inspects
+changed from `a0` to `gp`. Each of the ~40 `rv32ui-p-*` tests becomes one hex
+image, one sim run, one pass/fail. A shell loop over them is the whole
+regression, and it is worth wiring into the Makefile as `make regress` early —
+it is the thing that will be run hundreds of times.
+
+The suite's tests link at `0x8000_0000`, not 0. Either relink them with a custom
+linker script (`-Ttext=0`), or move `RESET_PC` and widen the memories. Relinking
+is far less work.
+
+---
+
 ## What carries into Phase 2 (so you build it once)
 
 | Module | Reused in Phase 2? |

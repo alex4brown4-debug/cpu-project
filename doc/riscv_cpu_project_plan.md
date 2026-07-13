@@ -168,6 +168,48 @@ This gives you a real, reusable UVM testbench on a real interface — its own re
 ---
 
 ## Repo Hygiene
-- `rtl/`, `tb/`, `sw/` (test programs), `docs/` (block diagrams), `results/`
+
+Actual layout:
+
+```
+design/pkg/               riscv_pkg.sv, ctrl_pkg.sv — encodings and the ctrl_t bundle
+design/src/               the functional units (alu, decoder, reg_file, ...)
+design/                   cpu_single_cycle_top.sv   — the throwaway top
+
+lint/                     cpu_rtl.f (filelist), waivers.vlt
+
+verif/                    tb_cpu.cpp — the C++ harness
+verif/sim/programs/       test program sources (.S)
+verif/sim/runs/<name>/    per-run artifacts: .elf .hex, memory images, .vcd
+verif/sim/obj_dir/        verilator build output
+
+doc/                      plans, block diagrams, references
+results/                  CPI / fmax / area numbers for the README table
+Makefile                  make lint | lint-synth | sim | run | dump | clean
+```
+
+Program **sources** live in one place; every **artifact** a run produces lands in
+that run's directory. So a run is reproducible and disposable — `make clean`
+wipes `runs/` back to empty without touching a single source file.
+
+Packages are `.sv`, not `.svh` — a `package` is a compilation unit, not an
+include header, and tools that key off the extension will skip a `.svh`.
+
+The filelist (`lint/cpu_rtl.f`) is the single source of truth for what the design
+consists of; every tool (lint, sim, synth) is pointed at it rather than given
+its own list. Paths in it are relative to the repo root, so tools run from there.
+
+## Two build configurations
+
+`RVFI` selects between them, and **both must lint clean**:
+
+| target | `RVFI` | what it is |
+|---|---|---|
+| `make lint` | defined | the verification config — exposes the retirement interface |
+| `make lint-synth` | undefined | what Phase 3C actually synthesizes; no RVFI hardware |
+
+The RVFI ports exist only for verification. Guarding them means the FPGA build
+never carries ~200 bits of flops that nothing on-chip reads.
+
 - README: block diagram, feature list, results table (tests passed, CPI, fmax, area), build/run instructions
 - Git tag per phase: `v1-single-cycle`, `v2-pipeline`, `v3a-caches`, ...
