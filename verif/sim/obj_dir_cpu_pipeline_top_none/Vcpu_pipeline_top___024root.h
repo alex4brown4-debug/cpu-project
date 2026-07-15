@@ -48,6 +48,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vcpu_pipeline_top___024root final {
     IData/*31:0*/ cpu_pipeline_top__DOT__pc_q;
     IData/*31:0*/ cpu_pipeline_top__DOT__pc_d;
     IData/*24:0*/ cpu_pipeline_top__DOT__id_ctrl;
+    IData/*31:0*/ cpu_pipeline_top__DOT__mem_alu_result;
     IData/*31:0*/ cpu_pipeline_top__DOT__next_pc_i__DOT__pc_next;
     IData/*31:0*/ cpu_pipeline_top__DOT__next_pc_i__DOT__target_raw;
     IData/*31:0*/ cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1;

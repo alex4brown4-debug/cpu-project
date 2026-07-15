@@ -470,6 +470,15 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
                                                    (0x00000018U 
                                                     & (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[3U] 
                                                        >> 2U))));
+    vlSelfRef.cpu_pipeline_top__DOT__mem_alu_result 
+        = ((2U == (3U & (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[6U] 
+                         >> 0x0000000dU))) ? ((vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[5U] 
+                                               << 0x0000001bU) 
+                                              | (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[4U] 
+                                                 >> 5U))
+            : ((vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[4U] 
+                << 0x0000001bU) | (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[3U] 
+                                   >> 5U)));
     vlSelfRef.cpu_pipeline_top__DOT__id_ctrl = 0U;
     vlSelfRef.cpu_pipeline_top__DOT__id_ctrl = (1U 
                                                 | vlSelfRef.cpu_pipeline_top__DOT__id_ctrl);
@@ -1143,11 +1152,7 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
             & ((0U != (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U])) 
                & ((0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U]) 
                   == (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
-                                     >> 5U))))) ? (
-                                                   (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[4U] 
-                                                    << 0x0000001bU) 
-                                                   | (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[3U] 
-                                                      >> 5U))
+                                     >> 5U))))) ? vlSelfRef.cpu_pipeline_top__DOT__mem_alu_result
             : ((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
                   >> 0x0000001aU) & (0x60U == (0x60U 
                                                & vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[9U]))) 
@@ -1169,31 +1174,20 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
                 == (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
                                    >> 0x0000000aU))) 
                & (0U != (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U]))))
-            ? ((vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[4U] 
-                << 0x0000001bU) | (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[3U] 
-                                   >> 5U)) : ((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                                 >> 0x0000001bU) 
-                                                & (0x60U 
-                                                   == 
-                                                   (0x60U 
-                                                    & vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[9U]))) 
-                                               & (((0x0000001fU 
-                                                    & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
-                                                       >> 8U)) 
-                                                   == 
-                                                   (0x0000001fU 
-                                                    & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
-                                                       >> 0x0000000aU))) 
-                                                  & (0U 
-                                                     != 
-                                                     (0x0000001fU 
-                                                      & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
-                                                         >> 8U)))))
-                                               ? vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__wr_data
-                                               : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[3U] 
-                                                   << 0x00000011U) 
-                                                  | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[2U] 
-                                                     >> 0x0000000fU))));
+            ? vlSelfRef.cpu_pipeline_top__DOT__mem_alu_result
+            : ((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
+                  >> 0x0000001bU) & (0x60U == (0x60U 
+                                               & vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[9U]))) 
+                & (((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
+                                    >> 8U)) == (0x0000001fU 
+                                                & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
+                                                   >> 0x0000000aU))) 
+                   & (0U != (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
+                                            >> 8U)))))
+                ? vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__wr_data
+                : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[3U] 
+                    << 0x00000011U) | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[2U] 
+                                       >> 0x0000000fU))));
     vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b 
         = ((0x10000000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
             ? ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[4U] 

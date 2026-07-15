@@ -586,6 +586,15 @@ VL_ATTR_COLD void Vcpu_pipeline_top___024root___stl_sequent__TOP__0(Vcpu_pipelin
                                                    (0x00000018U 
                                                     & (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[3U] 
                                                        >> 2U))));
+    vlSelfRef.cpu_pipeline_top__DOT__mem_alu_result 
+        = ((2U == (3U & (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[6U] 
+                         >> 0x0000000dU))) ? ((vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[5U] 
+                                               << 0x0000001bU) 
+                                              | (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[4U] 
+                                                 >> 5U))
+            : ((vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[4U] 
+                << 0x0000001bU) | (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[3U] 
+                                   >> 5U)));
     vlSelfRef.rvfi_mem_rdata = ((vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[5U] 
                                  << 0x00000013U) | 
                                 (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
@@ -819,11 +828,7 @@ VL_ATTR_COLD void Vcpu_pipeline_top___024root___stl_sequent__TOP__0(Vcpu_pipelin
             & ((0U != (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U])) 
                & ((0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U]) 
                   == (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
-                                     >> 5U))))) ? (
-                                                   (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[4U] 
-                                                    << 0x0000001bU) 
-                                                   | (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[3U] 
-                                                      >> 5U))
+                                     >> 5U))))) ? vlSelfRef.cpu_pipeline_top__DOT__mem_alu_result
             : ((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
                   >> 0x0000001aU) & (0x60U == (0x60U 
                                                & vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[9U]))) 
@@ -845,31 +850,20 @@ VL_ATTR_COLD void Vcpu_pipeline_top___024root___stl_sequent__TOP__0(Vcpu_pipelin
                 == (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
                                    >> 0x0000000aU))) 
                & (0U != (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U]))))
-            ? ((vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[4U] 
-                << 0x0000001bU) | (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[3U] 
-                                   >> 5U)) : ((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                                 >> 0x0000001bU) 
-                                                & (0x60U 
-                                                   == 
-                                                   (0x60U 
-                                                    & vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[9U]))) 
-                                               & (((0x0000001fU 
-                                                    & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
-                                                       >> 8U)) 
-                                                   == 
-                                                   (0x0000001fU 
-                                                    & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
-                                                       >> 0x0000000aU))) 
-                                                  & (0U 
-                                                     != 
-                                                     (0x0000001fU 
-                                                      & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
-                                                         >> 8U)))))
-                                               ? vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__wr_data
-                                               : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[3U] 
-                                                   << 0x00000011U) 
-                                                  | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[2U] 
-                                                     >> 0x0000000fU))));
+            ? vlSelfRef.cpu_pipeline_top__DOT__mem_alu_result
+            : ((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
+                  >> 0x0000001bU) & (0x60U == (0x60U 
+                                               & vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[9U]))) 
+                & (((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
+                                    >> 8U)) == (0x0000001fU 
+                                                & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
+                                                   >> 0x0000000aU))) 
+                   & (0U != (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
+                                            >> 8U)))))
+                ? vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__wr_data
+                : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[3U] 
+                    << 0x00000011U) | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[2U] 
+                                       >> 0x0000000fU))));
     vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b 
         = ((0x10000000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
             ? ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[4U] 
@@ -1161,6 +1155,7 @@ VL_ATTR_COLD void Vcpu_pipeline_top___024root___ctor_var_reset(Vcpu_pipeline_top
     vlSelf->cpu_pipeline_top__DOT__pc_q = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 11594959652545352611ull);
     vlSelf->cpu_pipeline_top__DOT__pc_d = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 17896070348475813621ull);
     vlSelf->cpu_pipeline_top__DOT__id_ctrl = VL_SCOPED_RAND_RESET_I(25, __VscopeHash, 11607900050905940352ull);
+    vlSelf->cpu_pipeline_top__DOT__mem_alu_result = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 4415728870712254428ull);
     vlSelf->cpu_pipeline_top__DOT__rvfi_rd_written = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12472070032686622758ull);
     vlSelf->cpu_pipeline_top__DOT__data_mem_i__DOT__mem_read = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3109908462039474551ull);
     vlSelf->cpu_pipeline_top__DOT__data_mem_i__DOT__mem_write = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 152369736696966624ull);
