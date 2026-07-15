@@ -17,6 +17,8 @@ Vcpu_pipeline_top::Vcpu_pipeline_top(VerilatedContext* _vcontextp__, const char*
     , rvfi_rd_addr{vlSymsp->TOP.rvfi_rd_addr}
     , rvfi_mem_rmask{vlSymsp->TOP.rvfi_mem_rmask}
     , rvfi_mem_wmask{vlSymsp->TOP.rvfi_mem_wmask}
+    , perf_stall{vlSymsp->TOP.perf_stall}
+    , perf_flush{vlSymsp->TOP.perf_flush}
     , pc_out{vlSymsp->TOP.pc_out}
     , instr_out{vlSymsp->TOP.instr_out}
     , rvfi_insn{vlSymsp->TOP.rvfi_insn}
@@ -151,6 +153,6 @@ VL_ATTR_COLD void Vcpu_pipeline_top::traceBaseModel(VerilatedTraceBaseC* tfp, in
             " use --trace-fst with VerilatedFst object, and --trace-vcd with VerilatedVcd object");
     }
     stfp->spTrace()->addModel(this);
-    stfp->spTrace()->addInitCb(&trace_init, &(vlSymsp->TOP), name(), false, 178);
+    stfp->spTrace()->addInitCb(&trace_init, &(vlSymsp->TOP), name(), false, 180);
     Vcpu_pipeline_top___024root__trace_register(&(vlSymsp->TOP), stfp->spTrace());
 }
