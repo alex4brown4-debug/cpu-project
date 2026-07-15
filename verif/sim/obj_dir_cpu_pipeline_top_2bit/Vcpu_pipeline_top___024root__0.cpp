@@ -19,7 +19,7 @@ bool Vcpu_pipeline_top___024root___trigger_anySet__act(const VlUnpacked<QData/*6
     return (0U);
 }
 
-extern const VlWide<9>/*287:0*/ Vcpu_pipeline_top__ConstPool__CONST_h3d049ec4_0;
+extern const VlWide<9>/*287:0*/ Vcpu_pipeline_top__ConstPool__CONST_hc5471b50_0;
 extern const VlWide<10>/*319:0*/ Vcpu_pipeline_top__ConstPool__CONST_h7e0a9f2c_0;
 
 void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024root* vlSelf) {
@@ -6195,7 +6195,7 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
         vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[6U] 
             = vlSelfRef.cpu_pipeline_top__DOT__ex_mem_d[6U];
         if (((IData)(vlSelfRef.perf_flush) | (IData)(vlSelfRef.perf_stall))) {
-            VL_ASSIGN_W(266, vlSelfRef.cpu_pipeline_top__DOT__id_ex_q, Vcpu_pipeline_top__ConstPool__CONST_h3d049ec4_0);
+            VL_ASSIGN_W(272, vlSelfRef.cpu_pipeline_top__DOT__id_ex_q, Vcpu_pipeline_top__ConstPool__CONST_hc5471b50_0);
         } else {
             __Vtemp_5[3U] = (((IData)((((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__imm_gen_i__DOT__imm)) 
                                         << 0x00000020U) 
@@ -6337,18 +6337,18 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
                                        << 0x0000000fU));
             vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
                 = ((((0x02000000U & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
-                                     << 0x00000018U)) 
+                                     << 0x00000012U)) 
                      | vlSelfRef.cpu_pipeline_top__DOT__id_ctrl) 
-                    << 0x00000010U) | ((vlSelfRef.cpu_pipeline_top__DOT__if_id_q[3U] 
+                    << 0x00000016U) | ((vlSelfRef.cpu_pipeline_top__DOT__if_id_q[3U] 
                                         >> 0x00000011U) 
-                                       | (0x00008000U 
+                                       | (0x003f8000U 
                                           & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
                                              << 0x0000000fU))));
             vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
                 = (((0x02000000U & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
-                                    << 0x00000018U)) 
+                                    << 0x00000012U)) 
                     | vlSelfRef.cpu_pipeline_top__DOT__id_ctrl) 
-                   >> 0x00000010U);
+                   >> 0x0000000aU);
         }
         if (vlSelfRef.perf_flush) {
             vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] = 0U;
@@ -6371,15 +6371,17 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
                                                                 + vlSelfRef.cpu_pipeline_top__DOT__pc_q)))) 
                            >> 0x00000020U));
             vlSelfRef.cpu_pipeline_top__DOT__if_id_q[3U] 
-                = (IData)((0x0000000200000000ULL | 
-                           (((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_taken)) 
-                             << 0x00000020U) | (QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_target)))));
+                = (IData)((((QData)((IData)((2U | (IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_taken)))) 
+                            << 0x00000026U) | ((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_target)) 
+                                               << 6U)));
             vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
-                = (3U & (IData)(((0x0000000200000000ULL 
-                                  | (((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_taken)) 
-                                      << 0x00000020U) 
-                                     | (QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_target)))) 
-                                 >> 0x00000020U)));
+                = (0x000000ffU & (IData)(((((QData)((IData)(
+                                                            (2U 
+                                                             | (IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_taken)))) 
+                                            << 0x00000026U) 
+                                           | ((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_target)) 
+                                              << 6U)) 
+                                          >> 0x00000020U)));
         }
         vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[0U] 
             = vlSelfRef.cpu_pipeline_top__DOT__mem_wb_d[0U];
@@ -6412,7 +6414,7 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
         vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[4U] = 0U;
         vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[5U] = 0U;
         vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[6U] = 0U;
-        VL_ASSIGN_W(266, vlSelfRef.cpu_pipeline_top__DOT__id_ex_q, Vcpu_pipeline_top__ConstPool__CONST_h3d049ec4_0);
+        VL_ASSIGN_W(272, vlSelfRef.cpu_pipeline_top__DOT__id_ex_q, Vcpu_pipeline_top__ConstPool__CONST_hc5471b50_0);
         vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] = 0U;
         vlSelfRef.cpu_pipeline_top__DOT__if_id_q[1U] = 0U;
         vlSelfRef.cpu_pipeline_top__DOT__if_id_q[2U] = 0U;
@@ -8164,10 +8166,10 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
                                    >> 5U)));
     vlSelfRef.cpu_pipeline_top__DOT__update_valid = (IData)(
                                                             ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
-                                                              >> 9U) 
+                                                              >> 0x0000000fU) 
                                                              & (0U 
                                                                 != 
-                                                                (0x00880000U 
+                                                                (0x22000000U 
                                                                  & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U]))));
     vlSelfRef.cpu_pipeline_top__DOT__mem_wb_d[0U] = 
         (((vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[3U] 

@@ -153,6 +153,6 @@ VL_ATTR_COLD void Vcpu_pipeline_top::traceBaseModel(VerilatedTraceBaseC* tfp, in
             " use --trace-fst with VerilatedFst object, and --trace-vcd with VerilatedVcd object");
     }
     stfp->spTrace()->addModel(this);
-    stfp->spTrace()->addInitCb(&trace_init, &(vlSymsp->TOP), name(), false, 194);
+    stfp->spTrace()->addInitCb(&trace_init, &(vlSymsp->TOP), name(), false, 197);
     Vcpu_pipeline_top___024root__trace_register(&(vlSymsp->TOP), stfp->spTrace());
 }

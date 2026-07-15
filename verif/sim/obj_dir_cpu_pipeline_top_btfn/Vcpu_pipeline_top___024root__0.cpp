@@ -19,7 +19,7 @@ bool Vcpu_pipeline_top___024root___trigger_anySet__act(const VlUnpacked<QData/*6
     return (0U);
 }
 
-extern const VlWide<9>/*287:0*/ Vcpu_pipeline_top__ConstPool__CONST_h3d049ec4_0;
+extern const VlWide<9>/*287:0*/ Vcpu_pipeline_top__ConstPool__CONST_hc5471b50_0;
 extern const VlWide<10>/*319:0*/ Vcpu_pipeline_top__ConstPool__CONST_h7e0a9f2c_0;
 
 void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024root* vlSelf) {
@@ -133,7 +133,7 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
             __VdlySet__cpu_pipeline_top__DOT__reg_file_i__DOT__regs__v1 = 1U;
         }
         if (((IData)(vlSelfRef.perf_flush) | (IData)(vlSelfRef.perf_stall))) {
-            VL_ASSIGN_W(266, vlSelfRef.cpu_pipeline_top__DOT__id_ex_q, Vcpu_pipeline_top__ConstPool__CONST_h3d049ec4_0);
+            VL_ASSIGN_W(272, vlSelfRef.cpu_pipeline_top__DOT__id_ex_q, Vcpu_pipeline_top__ConstPool__CONST_hc5471b50_0);
         } else {
             __Vtemp_5[3U] = (((IData)((((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__imm_gen_i__DOT__imm)) 
                                         << 0x00000020U) 
@@ -275,18 +275,18 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
                                        << 0x0000000fU));
             vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
                 = ((((0x02000000U & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
-                                     << 0x00000018U)) 
+                                     << 0x00000012U)) 
                      | vlSelfRef.cpu_pipeline_top__DOT__id_ctrl) 
-                    << 0x00000010U) | ((vlSelfRef.cpu_pipeline_top__DOT__if_id_q[3U] 
+                    << 0x00000016U) | ((vlSelfRef.cpu_pipeline_top__DOT__if_id_q[3U] 
                                         >> 0x00000011U) 
-                                       | (0x00008000U 
+                                       | (0x003f8000U 
                                           & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
                                              << 0x0000000fU))));
             vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
                 = (((0x02000000U & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
-                                    << 0x00000018U)) 
+                                    << 0x00000012U)) 
                     | vlSelfRef.cpu_pipeline_top__DOT__id_ctrl) 
-                   >> 0x00000010U);
+                   >> 0x0000000aU);
         }
         vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[0U] 
             = vlSelfRef.cpu_pipeline_top__DOT__ex_mem_d[0U];
@@ -323,15 +323,17 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
                                                                 + vlSelfRef.cpu_pipeline_top__DOT__pc_q)))) 
                            >> 0x00000020U));
             vlSelfRef.cpu_pipeline_top__DOT__if_id_q[3U] 
-                = (IData)((0x0000000200000000ULL | 
-                           (((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_taken)) 
-                             << 0x00000020U) | (QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_target)))));
+                = (IData)((((QData)((IData)((2U | (IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_taken)))) 
+                            << 0x00000026U) | ((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_target)) 
+                                               << 6U)));
             vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
-                = (3U & (IData)(((0x0000000200000000ULL 
-                                  | (((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_taken)) 
-                                      << 0x00000020U) 
-                                     | (QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_target)))) 
-                                 >> 0x00000020U)));
+                = (0x000000ffU & (IData)(((((QData)((IData)(
+                                                            (2U 
+                                                             | (IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_taken)))) 
+                                            << 0x00000026U) 
+                                           | ((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_target)) 
+                                              << 6U)) 
+                                          >> 0x00000020U)));
         }
         vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[0U] 
             = vlSelfRef.cpu_pipeline_top__DOT__mem_wb_d[0U];
@@ -358,7 +360,7 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
         }
     } else {
         __VdlySet__cpu_pipeline_top__DOT__reg_file_i__DOT__regs__v2 = 1U;
-        VL_ASSIGN_W(266, vlSelfRef.cpu_pipeline_top__DOT__id_ex_q, Vcpu_pipeline_top__ConstPool__CONST_h3d049ec4_0);
+        VL_ASSIGN_W(272, vlSelfRef.cpu_pipeline_top__DOT__id_ex_q, Vcpu_pipeline_top__ConstPool__CONST_hc5471b50_0);
         vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[0U] = 0U;
         vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[1U] = 0U;
         vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U] = 0U;
@@ -1103,7 +1105,7 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
     vlSelfRef.cpu_pipeline_top__DOT__mem_wb_d[9U] = 
         (0x0000007fU & (vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[6U] 
                         >> 0x00000018U));
-    vlSelfRef.perf_stall = (IData)(((0x0280U == (0x0280U 
+    vlSelfRef.perf_stall = (IData)(((0xa000U == (0xa000U 
                                                  & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])) 
                                     & ((0U != (0x0000001fU 
                                                & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U])) 
@@ -1150,16 +1152,14 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
     vlSelfRef.rvfi_rd_wdata = (vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__wr_data 
                                & (- (IData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__rvfi_rd_written))));
     vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2 
-        = ((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-              >> 0x0000001aU) & (0x60000000U == (0x60000000U 
-                                                 & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[6U]))) 
+        = (((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+             & (0x60000000U == (0x60000000U & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[6U]))) 
             & ((0U != (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U])) 
                & ((0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U]) 
                   == (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
                                      >> 5U))))) ? vlSelfRef.cpu_pipeline_top__DOT__mem_alu_result
-            : ((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                  >> 0x0000001aU) & (0x60U == (0x60U 
-                                               & vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[9U]))) 
+            : (((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                 & (0x60U == (0x60U & vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[9U]))) 
                 & ((0U != (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
                                           >> 8U))) 
                    & ((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
@@ -1171,24 +1171,24 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
                     << 0x00000011U) | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
                                        >> 0x0000000fU))));
     vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1 
-        = ((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-              >> 0x0000001bU) & (0x60000000U == (0x60000000U 
-                                                 & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[6U]))) 
-            & (((0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U]) 
-                == (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
-                                   >> 0x0000000aU))) 
-               & (0U != (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U]))))
+        = ((IData)((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                      >> 1U) & (0x60000000U == (0x60000000U 
+                                                & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[6U]))) 
+                    & (((0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U]) 
+                        == (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
+                                           >> 0x0000000aU))) 
+                       & (0U != (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q[2U])))))
             ? vlSelfRef.cpu_pipeline_top__DOT__mem_alu_result
-            : ((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                  >> 0x0000001bU) & (0x60U == (0x60U 
-                                               & vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[9U]))) 
-                & (((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
-                                    >> 8U)) == (0x0000001fU 
-                                                & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
-                                                   >> 0x0000000aU))) 
-                   & (0U != (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
-                                            >> 8U)))))
-                ? vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__wr_data
+            : ((IData)((((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                          >> 1U) & (0x60U == (0x60U 
+                                              & vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[9U]))) 
+                        & (((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
+                                            >> 8U)) 
+                            == (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[1U] 
+                                               >> 0x0000000aU))) 
+                           & (0U != (0x0000001fU & 
+                                     (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
+                                      >> 8U)))))) ? vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__wr_data
                 : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[3U] 
                     << 0x00000011U) | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[2U] 
                                        >> 0x0000000fU))));
@@ -1214,51 +1214,51 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
                                                         (3U 
                                                          & vlSelfRef.instr_out))))));
     vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b 
-        = ((0x10000000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
+        = ((4U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
             ? ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[4U] 
                 << 0x00000011U) | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[3U] 
                                    >> 0x0000000fU))
             : vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2);
     vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
-        = ((0U == (3U & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                         >> 0x0000001dU))) ? vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1
+        = ((0U == (3U & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                         >> 3U))) ? vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1
             : (((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[6U] 
                  << 0x00000011U) | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[5U] 
                                     >> 0x0000000fU)) 
-               & (- (IData)((1U == (3U & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                          >> 0x0000001dU)))))));
+               & (- (IData)((1U == (3U & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                                          >> 3U)))))));
     vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__target_raw 
         = (((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[4U] 
              << 0x00000011U) | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[3U] 
                                 >> 0x0000000fU)) + 
-           ((0x00040000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
+           ((0x01000000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
              ? vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1
              : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[6U] 
                  << 0x00000011U) | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[5U] 
                                     >> 0x0000000fU))));
     vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__take_redirect 
         = (1U & ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                  >> 0x00000013U) | ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                      >> 0x00000017U) 
-                                     & ((0x00400000U 
+                  >> 0x00000019U) | ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
+                                      >> 0x0000001dU) 
+                                     & ((0x10000000U 
                                          & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                          ? ((~ (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                                >> 0x00000015U)) 
-                                            & ((0x00100000U 
+                                                >> 0x0000001bU)) 
+                                            & ((0x04000000U 
                                                 & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                                 ? (vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1 
                                                    >= vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2)
                                                 : (vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1 
                                                    < vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2)))
-                                         : ((0x00200000U 
+                                         : ((0x08000000U 
                                              & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
-                                             ? ((0x00100000U 
+                                             ? ((0x04000000U 
                                                  & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                                  ? 
                                                 VL_GTES_III(32, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2)
                                                  : 
                                                 VL_LTS_III(32, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2))
-                                             : ((0x00100000U 
+                                             : ((0x04000000U 
                                                  & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                                  ? 
                                                 (vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1 
@@ -1358,7 +1358,7 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
         = ((IData)(vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__take_redirect)
             ? ((0xfffffffeU & vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__target_raw) 
                | (1U & ((~ (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                            >> 0x00000012U)) & vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__target_raw)))
+                            >> 0x00000018U)) & vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__target_raw)))
             : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[5U] 
                 << 0x00000011U) | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[4U] 
                                    >> 0x0000000fU)));
@@ -1386,73 +1386,73 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
             >> 0x0000001bU));
     vlSelfRef.cpu_pipeline_top__DOT__ex_mem_d[3U] = 
         ((0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_d[3U]) 
-         | (((4U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-              ? ((- (IData)((1U & (~ vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])))) 
-                 & (((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                      >> 0x0000001fU) ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
-                                         & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
-                      : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
-                         | vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)) 
-                    & (- (IData)((1U & (~ (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
-                                           >> 1U)))))))
-              : ((2U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-                  ? ((1U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-                      ? ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                          >> 0x0000001fU) ? VL_SHIFTRS_III(32,32,5, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a, 
-                                                           (0x0000001fU 
-                                                            & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))
+         | (((0x00000100U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+              ? ((- (IData)((1U & (~ (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                                      >> 6U))))) & 
+                 (((0x00000020U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                    ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
+                       & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
+                    : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
+                       | vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)) 
+                  & (- (IData)((1U & (~ (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                                         >> 7U)))))))
+              : ((0x00000080U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                  ? ((0x00000040U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                      ? ((0x00000020U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                          ? VL_SHIFTRS_III(32,32,5, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a, 
+                                           (0x0000001fU 
+                                            & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))
                           : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                              >> (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)))
-                      : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                          >> 0x0000001fU) ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
-                                             ^ vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
+                      : ((0x00000020U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                          ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
+                             ^ vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
                           : (1U & (- (IData)((vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                                               < vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))))))
-                  : ((1U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-                      ? ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                          >> 0x0000001fU) ? (1U & (- (IData)(
-                                                             VL_LTS_III(32, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))))
+                  : ((0x00000040U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                      ? ((0x00000020U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                          ? (1U & (- (IData)(VL_LTS_III(32, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))))
                           : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                              << (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)))
-                      : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                          >> 0x0000001fU) ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
-                                             - vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
+                      : ((0x00000020U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                          ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
+                             - vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
                           : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                              + vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))))) 
             << 5U));
     vlSelfRef.cpu_pipeline_top__DOT__ex_mem_d[4U] = 
         ((0xffffffe0U & vlSelfRef.cpu_pipeline_top__DOT__ex_mem_d[4U]) 
-         | (((4U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-              ? ((- (IData)((1U & (~ vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])))) 
-                 & (((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                      >> 0x0000001fU) ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
-                                         & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
-                      : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
-                         | vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)) 
-                    & (- (IData)((1U & (~ (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
-                                           >> 1U)))))))
-              : ((2U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-                  ? ((1U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-                      ? ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                          >> 0x0000001fU) ? VL_SHIFTRS_III(32,32,5, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a, 
-                                                           (0x0000001fU 
-                                                            & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))
+         | (((0x00000100U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+              ? ((- (IData)((1U & (~ (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                                      >> 6U))))) & 
+                 (((0x00000020U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                    ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
+                       & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
+                    : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
+                       | vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)) 
+                  & (- (IData)((1U & (~ (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                                         >> 7U)))))))
+              : ((0x00000080U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                  ? ((0x00000040U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                      ? ((0x00000020U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                          ? VL_SHIFTRS_III(32,32,5, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a, 
+                                           (0x0000001fU 
+                                            & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))
                           : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                              >> (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)))
-                      : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                          >> 0x0000001fU) ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
-                                             ^ vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
+                      : ((0x00000020U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                          ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
+                             ^ vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
                           : (1U & (- (IData)((vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                                               < vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))))))
-                  : ((1U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-                      ? ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                          >> 0x0000001fU) ? (1U & (- (IData)(
-                                                             VL_LTS_III(32, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))))
+                  : ((0x00000040U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                      ? ((0x00000020U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                          ? (1U & (- (IData)(VL_LTS_III(32, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))))
                           : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                              << (0x0000001fU & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)))
-                      : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                          >> 0x0000001fU) ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
-                                             - vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
+                      : ((0x00000020U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                          ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
+                             - vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
                           : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                              + vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))))) 
             >> 0x0000001bU));
@@ -1488,20 +1488,21 @@ void Vcpu_pipeline_top___024root___nba_sequent__TOP__0(Vcpu_pipeline_top___024ro
                                   >> 0x00000020U)) 
                          >> 0x0000001bU) | (0x7fffffe0U 
                                             & ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
-                                                << 0x00000015U) 
-                                               | (0x001fffe0U 
+                                                << 0x0000000fU) 
+                                               | (0x00007fe0U 
                                                   & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                                     >> 0x0000000bU))))));
+                                                     >> 0x00000011U))))));
     vlSelfRef.perf_flush = ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
-                             >> 9U) & (((IData)(vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__take_redirect) 
-                                        & (((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                             << 0x00000011U) 
-                                            | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[6U] 
-                                               >> 0x0000000fU)) 
-                                           != vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__pc_next)) 
-                                       | ((1U & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                                 >> 0x0000000fU)) 
-                                          != (IData)(vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__take_redirect))));
+                             >> 0x0000000fU) & (((IData)(vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__take_redirect) 
+                                                 & (((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
+                                                      << 0x0000000bU) 
+                                                     | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[6U] 
+                                                        >> 0x00000015U)) 
+                                                    != vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__pc_next)) 
+                                                | ((1U 
+                                                    & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
+                                                       >> 0x00000015U)) 
+                                                   != (IData)(vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__take_redirect))));
     vlSelfRef.cpu_pipeline_top__DOT__pc_d = ((IData)(vlSelfRef.perf_flush)
                                               ? vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__pc_next
                                               : ((IData)(vlSelfRef.cpu_pipeline_top__DOT__predict_taken)

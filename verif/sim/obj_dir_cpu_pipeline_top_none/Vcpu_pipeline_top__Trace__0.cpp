@@ -30,17 +30,16 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 0);
     if (VL_UNLIKELY((vlSelfRef.__Vm_traceActivity[1U]))) {
         bufp->chgIData(oldp+0,(vlSelfRef.cpu_pipeline_top__DOT__pc_q),32);
-        bufp->chgWData(oldp+1,(vlSelfRef.cpu_pipeline_top__DOT__if_id_q),130);
-        bufp->chgWData(oldp+6,(vlSelfRef.cpu_pipeline_top__DOT__id_ex_q),266);
+        bufp->chgWData(oldp+1,(vlSelfRef.cpu_pipeline_top__DOT__if_id_q),136);
+        bufp->chgWData(oldp+6,(vlSelfRef.cpu_pipeline_top__DOT__id_ex_q),272);
         bufp->chgWData(oldp+15,(vlSelfRef.cpu_pipeline_top__DOT__ex_mem_d),223);
         bufp->chgWData(oldp+22,(vlSelfRef.cpu_pipeline_top__DOT__ex_mem_q),223);
         bufp->chgWData(oldp+29,(vlSelfRef.cpu_pipeline_top__DOT__mem_wb_d),295);
         bufp->chgWData(oldp+39,(vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q),295);
         bufp->chgBit(oldp+49,((IData)(((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
-                                        >> 9U) & (0U 
-                                                  != 
-                                                  (0x00880000U 
-                                                   & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U]))))));
+                                        >> 0x0000000fU) 
+                                       & (0U != (0x22000000U 
+                                                 & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U]))))));
         bufp->chgIData(oldp+50,(((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[6U] 
                                   << 0x00000011U) | 
                                  (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[5U] 
@@ -58,11 +57,13 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
         bufp->chgIData(oldp+60,(vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2),32);
         bufp->chgIData(oldp+61,(vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a),32);
         bufp->chgIData(oldp+62,(vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b),32);
-        bufp->chgIData(oldp+63,(((4U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+        bufp->chgIData(oldp+63,(((0x00000100U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
                                   ? ((- (IData)((1U 
-                                                 & (~ vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])))) 
-                                     & (((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                          >> 0x0000001fU)
+                                                 & (~ 
+                                                    (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                                                     >> 6U))))) 
+                                     & (((0x00000020U 
+                                          & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
                                           ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                                              & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
                                           : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
@@ -71,11 +72,12 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
                                                      (1U 
                                                       & (~ 
                                                          (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
-                                                          >> 1U)))))))
-                                  : ((2U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-                                      ? ((1U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-                                          ? ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                              >> 0x0000001fU)
+                                                          >> 7U)))))))
+                                  : ((0x00000080U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                                      ? ((0x00000040U 
+                                          & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                                          ? ((0x00000020U 
+                                              & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
                                               ? VL_SHIFTRS_III(32,32,5, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a, 
                                                                (0x0000001fU 
                                                                 & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))
@@ -83,17 +85,18 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
                                                  >> 
                                                  (0x0000001fU 
                                                   & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)))
-                                          : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                              >> 0x0000001fU)
+                                          : ((0x00000020U 
+                                              & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
                                               ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                                                  ^ vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
                                               : (1U 
                                                  & (- (IData)(
                                                               (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                                                                < vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))))))
-                                      : ((1U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
-                                          ? ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                              >> 0x0000001fU)
+                                      : ((0x00000040U 
+                                          & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
+                                          ? ((0x00000020U 
+                                              & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
                                               ? (1U 
                                                  & (- (IData)(
                                                               VL_LTS_III(32, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a, vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b))))
@@ -101,21 +104,21 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
                                                  << 
                                                  (0x0000001fU 
                                                   & vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)))
-                                          : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                              >> 0x0000001fU)
+                                          : ((0x00000020U 
+                                              & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U])
                                               ? (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                                                  - vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)
                                               : (vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__a 
                                                  + vlSelfRef.cpu_pipeline_top__DOT__alu_i__DOT__b)))))),32);
         bufp->chgBit(oldp+64,(((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                >> 0x00000017U) & (
-                                                   (0x00400000U 
+                                >> 0x0000001dU) & (
+                                                   (0x10000000U 
                                                     & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                                     ? 
                                                    ((~ 
                                                      (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                                      >> 0x00000015U)) 
-                                                    & ((0x00100000U 
+                                                      >> 0x0000001bU)) 
+                                                    & ((0x04000000U 
                                                         & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                                         ? 
                                                        (vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1 
@@ -124,17 +127,17 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
                                                        (vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1 
                                                         < vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2)))
                                                     : 
-                                                   ((0x00200000U 
+                                                   ((0x08000000U 
                                                      & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                                      ? 
-                                                    ((0x00100000U 
+                                                    ((0x04000000U 
                                                       & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                                       ? 
                                                      VL_GTES_III(32, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2)
                                                       : 
                                                      VL_LTS_III(32, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2))
                                                      : 
-                                                    ((0x00100000U 
+                                                    ((0x04000000U 
                                                       & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                                       ? 
                                                      (vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1 
@@ -251,29 +254,27 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
                                                                   >> 0x00000018U))))))) 
                                                 & (- (IData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__data_mem_i__DOT__mem_write)))))),4);
         bufp->chgBit(oldp+70,(vlSelfRef.cpu_pipeline_top__DOT__rvfi_rd_written));
-        bufp->chgCData(oldp+71,((0x0000000fU & ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
-                                                 << 1U) 
-                                                | (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                                   >> 0x0000001fU)))),4);
+        bufp->chgCData(oldp+71,((0x0000000fU & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[8U] 
+                                                >> 5U))),4);
         bufp->chgCData(oldp+72,((7U & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                       >> 0x00000014U))),3);
+                                       >> 0x0000001aU))),3);
         bufp->chgBit(oldp+73,((1U & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                     >> 0x00000017U))));
-        bufp->chgBit(oldp+74,(((0x00400000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
+                                     >> 0x0000001dU))));
+        bufp->chgBit(oldp+74,(((0x10000000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                 ? ((~ (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                       >> 0x00000015U)) 
-                                   & ((0x00100000U 
+                                       >> 0x0000001bU)) 
+                                   & ((0x04000000U 
                                        & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                        ? (vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1 
                                           >= vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2)
                                        : (vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1 
                                           < vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2)))
-                                : ((0x00200000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
-                                    ? ((0x00100000U 
+                                : ((0x08000000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
+                                    ? ((0x04000000U 
                                         & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                         ? VL_GTES_III(32, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2)
                                         : VL_LTS_III(32, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1, vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2))
-                                    : ((0x00100000U 
+                                    : ((0x04000000U 
                                         & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                         ? (vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1 
                                            != vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs2)
@@ -303,10 +304,10 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
                                  (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[3U] 
                                   >> 0x0000000fU))),32);
         bufp->chgBit(oldp+83,((1U & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                     >> 0x00000012U))));
+                                     >> 0x00000018U))));
         bufp->chgBit(oldp+84,((1U & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                     >> 0x00000013U))));
-        bufp->chgIData(oldp+85,(((0x00040000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
+                                     >> 0x00000019U))));
+        bufp->chgIData(oldp+85,(((0x01000000U & vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U])
                                   ? vlSelfRef.cpu_pipeline_top__DOT__branch_cmp_i__DOT__rs1
                                   : ((vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[6U] 
                                       << 0x00000011U) 
@@ -315,32 +316,34 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
         bufp->chgIData(oldp+86,(vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__target_raw),32);
         bufp->chgIData(oldp+87,(((0xfffffffeU & vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__target_raw) 
                                  | (1U & ((~ (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[7U] 
-                                              >> 0x00000012U)) 
+                                              >> 0x00000018U)) 
                                           & vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__target_raw)))),32);
-        bufp->chgCData(oldp+88,((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] 
-                                                >> 0x0000000fU))),5);
+        bufp->chgCData(oldp+88,((0x0000003fU & (vlSelfRef.cpu_pipeline_top__DOT__id_ex_q[6U] 
+                                                >> 0x0000000fU))),6);
         bufp->chgCData(oldp+89,((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] 
+                                                >> 0x0000000fU))),5);
+        bufp->chgCData(oldp+90,((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] 
                                                 >> 0x00000014U))),5);
-        bufp->chgCData(oldp+90,((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
+        bufp->chgCData(oldp+91,((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
                                                 >> 8U))),5);
     }
-    bufp->chgBit(oldp+91,(vlSelfRef.clk));
-    bufp->chgBit(oldp+92,(vlSelfRef.rst_n));
-    bufp->chgIData(oldp+93,(vlSelfRef.instr_out),32);
-    bufp->chgBit(oldp+94,(vlSelfRef.halt));
-    bufp->chgBit(oldp+95,(vlSelfRef.rvfi_valid));
-    bufp->chgIData(oldp+96,(vlSelfRef.rvfi_insn),32);
-    bufp->chgIData(oldp+97,(vlSelfRef.rvfi_pc_rdata),32);
-    bufp->chgIData(oldp+98,(vlSelfRef.rvfi_pc_wdata),32);
-    bufp->chgCData(oldp+99,(vlSelfRef.rvfi_rd_addr),5);
-    bufp->chgIData(oldp+100,(vlSelfRef.rvfi_rd_wdata),32);
-    bufp->chgIData(oldp+101,(vlSelfRef.rvfi_mem_addr),32);
-    bufp->chgCData(oldp+102,(vlSelfRef.rvfi_mem_rmask),4);
-    bufp->chgCData(oldp+103,(vlSelfRef.rvfi_mem_wmask),4);
-    bufp->chgIData(oldp+104,(vlSelfRef.rvfi_mem_rdata),32);
-    bufp->chgIData(oldp+105,(vlSelfRef.rvfi_mem_wdata),32);
-    bufp->chgBit(oldp+106,(vlSelfRef.perf_stall));
-    bufp->chgBit(oldp+107,(vlSelfRef.perf_flush));
+    bufp->chgBit(oldp+92,(vlSelfRef.clk));
+    bufp->chgBit(oldp+93,(vlSelfRef.rst_n));
+    bufp->chgIData(oldp+94,(vlSelfRef.instr_out),32);
+    bufp->chgBit(oldp+95,(vlSelfRef.halt));
+    bufp->chgBit(oldp+96,(vlSelfRef.rvfi_valid));
+    bufp->chgIData(oldp+97,(vlSelfRef.rvfi_insn),32);
+    bufp->chgIData(oldp+98,(vlSelfRef.rvfi_pc_rdata),32);
+    bufp->chgIData(oldp+99,(vlSelfRef.rvfi_pc_wdata),32);
+    bufp->chgCData(oldp+100,(vlSelfRef.rvfi_rd_addr),5);
+    bufp->chgIData(oldp+101,(vlSelfRef.rvfi_rd_wdata),32);
+    bufp->chgIData(oldp+102,(vlSelfRef.rvfi_mem_addr),32);
+    bufp->chgCData(oldp+103,(vlSelfRef.rvfi_mem_rmask),4);
+    bufp->chgCData(oldp+104,(vlSelfRef.rvfi_mem_wmask),4);
+    bufp->chgIData(oldp+105,(vlSelfRef.rvfi_mem_rdata),32);
+    bufp->chgIData(oldp+106,(vlSelfRef.rvfi_mem_wdata),32);
+    bufp->chgBit(oldp+107,(vlSelfRef.perf_stall));
+    bufp->chgBit(oldp+108,(vlSelfRef.perf_flush));
     __Vtemp_2[0U] = vlSelfRef.instr_out;
     __Vtemp_2[1U] = (IData)((((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__pc_q)) 
                               << 0x00000020U) | (QData)((IData)(
@@ -351,14 +354,15 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
                                                                  ((IData)(4U) 
                                                                   + vlSelfRef.cpu_pipeline_top__DOT__pc_q)))) 
                              >> 0x00000020U));
-    __Vtemp_2[3U] = (IData)((0x0000000200000000ULL 
-                             | (QData)((IData)(((IData)(4U) 
-                                                + vlSelfRef.cpu_pipeline_top__DOT__pc_q)))));
-    __Vtemp_2[4U] = (IData)(((0x0000000200000000ULL 
-                              | (QData)((IData)(((IData)(4U) 
-                                                 + vlSelfRef.cpu_pipeline_top__DOT__pc_q)))) 
-                             >> 0x00000020U));
-    bufp->chgWData(oldp+108,(__Vtemp_2),130);
+    __Vtemp_2[3U] = (IData)((0x0000008000000000ULL 
+                             | ((QData)((IData)(((IData)(4U) 
+                                                 + vlSelfRef.cpu_pipeline_top__DOT__pc_q))) 
+                                << 6U)));
+    __Vtemp_2[4U] = (IData)(((0x0000008000000000ULL 
+                              | ((QData)((IData)(((IData)(4U) 
+                                                  + vlSelfRef.cpu_pipeline_top__DOT__pc_q))) 
+                                 << 6U)) >> 0x00000020U));
+    bufp->chgWData(oldp+109,(__Vtemp_2),136);
     __Vtemp_7[3U] = (((IData)((((QData)((IData)(vlSelfRef.cpu_pipeline_top__DOT__imm_gen_i__DOT__imm)) 
                                 << 0x00000020U) | (QData)((IData)(
                                                                   ((((0x0000001fU 
@@ -491,22 +495,22 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
                       >> 0x00000011U) | (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[3U] 
                                          << 0x0000000fU));
     __Vtemp_9[7U] = ((((0x02000000U & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
-                                       << 0x00000018U)) 
+                                       << 0x00000012U)) 
                        | vlSelfRef.cpu_pipeline_top__DOT__id_ctrl) 
-                      << 0x00000010U) | ((vlSelfRef.cpu_pipeline_top__DOT__if_id_q[3U] 
+                      << 0x00000016U) | ((vlSelfRef.cpu_pipeline_top__DOT__if_id_q[3U] 
                                           >> 0x00000011U) 
-                                         | (0x00008000U 
+                                         | (0x003f8000U 
                                             & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
                                                << 0x0000000fU))));
     __Vtemp_9[8U] = (((0x02000000U & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[4U] 
-                                      << 0x00000018U)) 
+                                      << 0x00000012U)) 
                       | vlSelfRef.cpu_pipeline_top__DOT__id_ctrl) 
-                     >> 0x00000010U);
-    bufp->chgWData(oldp+113,(__Vtemp_9),266);
-    bufp->chgIData(oldp+122,(((IData)(vlSelfRef.perf_flush)
+                     >> 0x0000000aU);
+    bufp->chgWData(oldp+114,(__Vtemp_9),272);
+    bufp->chgIData(oldp+123,(((IData)(vlSelfRef.perf_flush)
                                ? vlSelfRef.cpu_pipeline_top__DOT__next_pc_i__DOT__pc_next
                                : ((IData)(4U) + vlSelfRef.cpu_pipeline_top__DOT__pc_q))),32);
-    bufp->chgIData(oldp+123,(((((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] 
+    bufp->chgIData(oldp+124,(((((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] 
                                                 >> 0x0000000fU)) 
                                 == (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
                                                    >> 8U))) 
@@ -515,7 +519,7 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
                                : vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__regs
                               [(0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] 
                                                >> 0x0000000fU))])),32);
-    bufp->chgIData(oldp+124,(((((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] 
+    bufp->chgIData(oldp+125,(((((0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] 
                                                 >> 0x00000014U)) 
                                 == (0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__mem_wb_q[4U] 
                                                    >> 8U))) 
@@ -524,7 +528,7 @@ void Vcpu_pipeline_top___024root__trace_chg_0_sub_0(Vcpu_pipeline_top___024root*
                                : vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__regs
                               [(0x0000001fU & (vlSelfRef.cpu_pipeline_top__DOT__if_id_q[0U] 
                                                >> 0x00000014U))])),32);
-    Vcpu_pipeline_top___024root__trace_chg_dtype____0(vlSelf, bufp, 125, vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__regs);
+    Vcpu_pipeline_top___024root__trace_chg_dtype____0(vlSelf, bufp, 126, vlSelfRef.cpu_pipeline_top__DOT__reg_file_i__DOT__regs);
 }
 
 void Vcpu_pipeline_top___024root__trace_chg_dtype____0(Vcpu_pipeline_top___024root* vlSelf, VerilatedVcd::Buffer* bufp, uint32_t offset, const VlUnpacked<IData/*31:0*/, 32>& __VdtypeVar) {
